@@ -10,7 +10,8 @@ A full-stack web application that helps users find the shortest walking route be
  Interactive Campus Map — A simple SVG-based schematic map that visually highlights the selected route, with distinct colors for the start, destination, and path.
  Animated Route Preview — A small animated icon travels along the calculated route while the path draws itself in real time.
  Space-Themed UI — A clean, subtle dark "universe" theme built entirely with plain CSS — no UI frameworks.
- Tech Stack
+ 
+Tech Stack
 Layer	Technology
 Frontend	React.js (Vite), Plain CSS, SVG
 Backend	Node.js, Express.js
@@ -18,9 +19,7 @@ Database	MySQL
 Algorithm	Dijkstra's Algorithm (custom implementation)
 Authentication	JWT (jsonwebtoken), bcrypt
 
-No Tailwind, Bootstrap, TypeScript, or MongoDB — kept intentionally simple and beginner-friendly.
-
- Architecture
+Architecture
 React Frontend (Vite)
        ↓  fetch() — HTTP requests
 Node.js + Express Backend
@@ -29,6 +28,7 @@ MySQL Database
 Frontend handles the UI: login/register, location dropdowns, results display, and the animated SVG map.
 Backend exposes a REST API, handles authentication, queries the database, builds the graph, and runs Dijkstra's Algorithm.
 Database stores campus locations, the paths between them, and registered users.
+
 📂 Project Structure
 campus-navigation-system/
 │
@@ -77,7 +77,7 @@ password	VARCHAR(255)	bcrypt-hashed password
 
 Locations and routes together form a weighted, undirected graph — locations are nodes, routes are edges, and distance is the edge weight.
 
- Setup & Installation
+Setup & Installation
 Prerequisites
 Node.js and npm installed
 MySQL server installed and running
