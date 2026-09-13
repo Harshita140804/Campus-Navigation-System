@@ -1,4 +1,4 @@
-🛰️ # Campus Navigation System
+🛰️  Campus Navigation System
 
 A full-stack web application that helps users find the shortest walking route between locations on a campus.
 
