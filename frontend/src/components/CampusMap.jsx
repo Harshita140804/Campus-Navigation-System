@@ -19,16 +19,16 @@ function CampusMap({ locations = [], allRoutes = [], path = [], from, to }) {
 
   const [progress, setProgress] = useState(0); // 0 = start, 1 = finished
 
-  // Convert the path (list of names) into actual x,y points on our map
+  
   const pathPoints = path
     .map((name) => locationPositions[name])
     .filter((point) => point);
 
-  // Restart the animation from 0 every time a NEW path is found
+  
   useEffect(() => {
     setProgress(0);
 
-    if (pathPoints.length < 2) return; // nothing to animate
+    if (pathPoints.length < 2) return; 
 
     const stepTime = 30; // update every 30 milliseconds
     const increment = stepTime / ANIMATION_DURATION_MS;
@@ -40,12 +40,11 @@ function CampusMap({ locations = [], allRoutes = [], path = [], from, to }) {
       });
     }, stepTime);
 
-    // Cleanup: stop the old interval if the path changes again before finishing
+    
     return () => clearInterval(intervalId);
   }, [path.join('-')]);
 
-  // Work out exactly where the UFO is right now, and how much of the
-  // line should be drawn, based on the current progress (0 to 1)
+  
   function getCurrentPositionAndDrawnPoints() {
     if (pathPoints.length < 2) return { current: null, drawnPoints: [] };
 
@@ -93,7 +92,7 @@ function CampusMap({ locations = [], allRoutes = [], path = [], from, to }) {
 
   return (
     <svg viewBox="0 0 600 420" className="campus-map">
-      {/* Base connections - always gray */}
+      
       {allRoutes.map((route) => {
         const sourceName = idToName[route.source_id];
         const destName = idToName[route.destination_id];
@@ -115,7 +114,7 @@ function CampusMap({ locations = [], allRoutes = [], path = [], from, to }) {
         );
       })}
 
-      {/* The progressively-drawn shortest path line */}
+      
       {drawnPoints.length > 1 && (
         <polyline
           points={drawnLinePoints}
@@ -127,7 +126,7 @@ function CampusMap({ locations = [], allRoutes = [], path = [], from, to }) {
         />
       )}
 
-      {/* Location dots */}
+      
       {locations.map((loc) => {
         const pos = locationPositions[loc.name];
         if (!pos) return null;
@@ -149,7 +148,7 @@ function CampusMap({ locations = [], allRoutes = [], path = [], from, to }) {
         );
       })}
 
-      {/* The UFO, positioned exactly at the current progress point */}
+      
       {current && (
         <text
           x={current.x}

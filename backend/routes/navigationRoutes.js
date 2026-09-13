@@ -4,10 +4,10 @@ const db = require('../config/db');
 const { dijkstra, buildGraph } = require('../utils/dijkstra');
 const verifyToken = require('../middleware/authMiddleware');
 
-// Average human walking speed, used to estimate time
+
 const WALKING_SPEED_METERS_PER_MIN = 80; // ~4.8 km/h
 
-// GET all routes (edges) - for testing raw data
+
 router.get('/routes', async (req, res) => {
     try {
         const [rows] = await db.query('SELECT * FROM routes');
@@ -18,7 +18,7 @@ router.get('/routes', async (req, res) => {
     }
 });
 
-// GET shortest path between two locations
+
 router.get('/shortest-path', async (req, res) => {
     try {
         const { from, to } = req.query;

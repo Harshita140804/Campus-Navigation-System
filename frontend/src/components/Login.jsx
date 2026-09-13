@@ -28,7 +28,7 @@ function Login({ onLoginSuccess }) {
         setMessage('Registered successfully! Now please log in.');
         setIsRegistering(false);
       } else {
-        // Login succeeded - save the token and tell the parent component
+        
         localStorage.setItem('token', data.token);
         onLoginSuccess();
       }
